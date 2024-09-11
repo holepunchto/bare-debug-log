@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/holepunchto/bare-debug-log#readme",
   "dependencies": {
-    "bare-os": "^2.3.0"
+    "bare-os": "^3.0.1"
   },
   "devDependencies": {
     "standard": "^17.0.0"
