@@ -4,16 +4,19 @@ const pid = os.pid()
 const env = os.getEnv('BARE_DEBUG') || os.getEnv('NODE_DEBUG') || ''
 
 const test = new RegExp(
-  `^${env.replace(/[|\\{}()[\]^$+?.]/g, '\\$&').replace(/\*/g, '.*').replace(/,/g, '$|^')}$`,
+  `^${env
+    .replace(/[|\\{}()[\]^$+?.]/g, '\\$&')
+    .replace(/\*/g, '.*')
+    .replace(/,/g, '$|^')}$`,
   'i'
 )
 
-module.exports = function debug (section) {
+module.exports = function createDebug(section) {
   section = section.toUpperCase()
 
   const enabled = test.test(section)
 
-  function debug (...args) {
+  function debug(...args) {
     if (enabled) console.error('%s %s:', section, pid, ...args)
   }
 
