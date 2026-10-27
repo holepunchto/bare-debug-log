@@ -10,7 +10,9 @@
     "index.js"
   ],
   "scripts": {
-    "test": "standard"
+    "format": "prettier --write . && lunte --fix",
+    "lint": "prettier --check . && lunte",
+    "test": "brittle-bare --coverage test.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,9 @@
     "bare-os": "^3.0.1"
   },
   "devDependencies": {
-    "standard": "^17.0.0"
+    "brittle": "^4.5.0",
+    "lunte": "^1.8.6",
+    "prettier": "^3.6.2",
+    "prettier-config-holepunch": "^2.0.0"
   }
 }
